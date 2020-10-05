@@ -7,6 +7,7 @@ const DetailScreen = ({ navigation }) => {
 
   const [movieDetails, setMovieDetails] = useState({});
 
+  // Fetch the details of the movie that was viewed
   const fetchMovieDetails = async (movieId) => {
     await fetch("https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?t=loadvideo&q="+movieId, {
     	"method": "GET",

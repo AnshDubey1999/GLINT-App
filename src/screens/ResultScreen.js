@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView, ImageBackground, SafeAreaView, Imag
 const ResultScreen = ({ navigation }) => {
   const [results, setResults] = useState([]);
 
+  // Fetch the search results given the string searchTerm
   const searchApi = async (searchText) => {
     await fetch("https://unogsng.p.rapidapi.com/search?query=" + searchText, {
     	"method": "GET",
@@ -20,6 +21,7 @@ const ResultScreen = ({ navigation }) => {
     });
   };
 
+  // Fetch the results as soon as the screen unmounts and only then
   useEffect(() => {
     const term = navigation.getParam('term');
     searchApi(term);

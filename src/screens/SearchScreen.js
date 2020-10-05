@@ -11,6 +11,7 @@ const SearchScreen = ({ navigation }) => {
   const [expiringSoon, setExpiringSoon] = useState([]);
   const [seasonChanges, setSeasonChanges] = useState([]);
 
+  // Fetches all the new releases from the Netflix API
   const fetchNewReleases = async () => {
     await fetch("https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%3Anew7%3AUS&p=1&t=ns&st=adv", {
     	"method": "GET",
@@ -26,6 +27,7 @@ const SearchScreen = ({ navigation }) => {
     });
   };
 
+  // Fetches all the expiring soon from the Netflix API
   const fetchExpiringSoon = async () => {
     await fetch("https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%3Aexp%3AUS&t=ns&st=adv&p=1", {
     	"method": "GET",
@@ -41,6 +43,7 @@ const SearchScreen = ({ navigation }) => {
     });
   };
 
+  // Fetches all the season changes from the Netflix API
   const fetchSeasonChanges = async () => {
     await fetch("https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%3Aseasons5%3AUS&p=1&t=ns&st=adv", {
     	"method": "GET",
@@ -56,12 +59,13 @@ const SearchScreen = ({ navigation }) => {
       });
   };
 
+  // Fetch the results only when the screen mounts
   useEffect(() => {
     fetchNewReleases();
     fetchExpiringSoon();
     fetchSeasonChanges();
   }, []);
-
+  
   return(
       <ImageBackground source={require('../images/wallpaper.jpg')} style={styles.backgroundImage}>
        <SafeAreaView style={{flex: 1}}>
