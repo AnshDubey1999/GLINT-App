@@ -1,0 +1,13 @@
+Author: Ansh Dubey
+
+Steps to start:
+1. Clone the project repository.
+2. After switching directories inside, run npm install.
+3. Run npm start
+
+This will start running the project on the local host.
+
+4. Install Expo on your device. 
+5. Finally, scan the code on the localhost. 
+
+If it doesn't work, switch it to LAN instead of tunnel and scan that code.
